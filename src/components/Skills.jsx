@@ -1,17 +1,17 @@
-function Skills() {
+function Skills({ darkMode }) {
   const skills = [
     "Artificial Intelligence",
-    "Machine Learning",
     "Cyber Security",
-    "DSA",
-    "C++",
-    "Python",
-    "JavaScript",
+    "Generative AI",
+    "Machine Learning",
+    "Data Structures & Algorithms",
+    "Full Stack Development",
     "React",
-    "Tailwind CSS",
-    "Git",
-    "GitHub",
+    "JavaScript",
+    "Python",
+    "C++",
     "MongoDB",
+    "Git & GitHub",
   ];
 
   return (
@@ -19,30 +19,48 @@ function Skills() {
       id="skills"
       className="py-32 px-8 max-w-7xl mx-auto"
     >
-      <h2 className="text-6xl md:text-7xl font-bold tracking-tight text-[#1D1D1D] mb-12">
-        Skills
+      <p
+        className={`uppercase tracking-[0.2em] text-sm font-semibold mb-4 ${
+          darkMode ? "text-[#C5B4D4]" : "text-[#B8A89F]"
+        }`}
+      >
+        Expertise
+      </p>
+
+      <h2
+        className={`text-5xl md:text-6xl font-bold mb-6 transition-all duration-500 ${
+          darkMode ? "text-white" : "text-[#1D1D1D]"
+        }`}
+      >
+        Skills & Technologies
       </h2>
 
-      <div className="flex flex-wrap gap-5">
+      <p
+        className={`text-xl max-w-3xl mb-14 transition-all duration-500 ${
+          darkMode ? "text-[#B8BDC9]" : "text-[#555555]"
+        }`}
+      >
+        A blend of software engineering, artificial intelligence,
+        cybersecurity, and modern web development technologies.
+      </p>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skills.map((skill) => (
           <div
             key={skill}
-            className="
-              px-8 py-4
-              bg-white/80
-              backdrop-blur-sm
-              border border-[#E8E1D8]
-              rounded-2xl
-              text-lg
-              font-medium
-              text-[#555555]
-              shadow-sm
-              hover:shadow-lg
-              hover:-translate-y-1
-              transition-all duration-300
-            "
+            className={`p-8 rounded-[28px] border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+              darkMode
+                ? "bg-[#181A22]/80 border-[#2A2D38]"
+                : "bg-white/80 border-[#E7DED5]"
+            }`}
           >
-            {skill}
+            <h3
+              className={`text-xl font-semibold ${
+                darkMode ? "text-white" : "text-[#1D1D1D]"
+              }`}
+            >
+              {skill}
+            </h3>
           </div>
         ))}
       </div>
