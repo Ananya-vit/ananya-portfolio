@@ -1,94 +1,136 @@
 function Hero() {
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-10 min-h-screen flex items-center">
-      <div className="grid md:grid-cols-2 gap-16 items-center w-full">
+    <section className="relative overflow-hidden py-28">
 
-        {/* Left Side */}
-        <div>
+      {/* Background Blobs */}
+      <div className="absolute top-20 left-20 w-72 h-72 bg-[#C5B4D4]/30 blur-[120px] rounded-full"></div>
 
-          <span className="inline-block px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 font-medium">
-            Open to Internship & Full-Time Opportunities
-          </span>
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#D9C6B0]/30 blur-[140px] rounded-full"></div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mt-8 leading-tight">
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Ananya Singh
-            </span>
-          </h1>
+      <div className="max-w-7xl mx-auto px-8">
 
-          <p className="text-slate-600 text-lg md:text-xl mt-6 max-w-xl">
-            Computer Science Student passionate about Full Stack Development,
-            Cyber Security, Artificial Intelligence, Machine Learning,
-            and Data Structures & Algorithms.
-          </p>
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-20 items-center">
 
-          <div className="flex flex-wrap gap-3 mt-8">
+          {/* LEFT */}
 
-            <span className="px-4 py-2 rounded-full bg-indigo-50 text-indigo-600">
-              Full Stack
+          <div>
+
+            <span className="inline-flex items-center px-5 py-2 rounded-full bg-white/70 backdrop-blur-sm border border-[#EAE3DA] text-[#555555]">
+              Open to Internships & Full-Time Opportunities
             </span>
 
-            <span className="px-4 py-2 rounded-full bg-purple-50 text-purple-600">
-            Cyber Security
-            </span>
+            <h1 className="mt-8 text-[72px] leading-[0.95] font-bold tracking-tight text-[#1D1D1D]">
 
-            <span className="px-4 py-2 rounded-full bg-blue-50 text-blue-600">
-            DSA
-            </span>
+              Hi, I'm{" "}
 
-            <span className="px-4 py-2 rounded-full bg-pink-50 text-pink-600">
-            AI & ML
-            </span>
+              <span className="bg-gradient-to-r from-[#B8A89F] via-[#A7B5C5] to-[#C5B4D4] bg-clip-text text-transparent">
+                Ananya
+              </span>
+
+            </h1>
+
+            <h2 className="mt-6 text-2xl font-medium text-[#555555]">
+              Computer Science Undergraduate at VIT Bhopal
+            </h2>
+
+            <p className="mt-8 text-lg leading-8 text-[#555555] max-w-xl">
+              Passionate about Artificial Intelligence,
+              Cyber Security, Machine Learning,
+              Data Structures & Algorithms,
+              and Full Stack Development.
+
+              Building impactful digital experiences
+              and solving real-world problems through technology.
+            </p>
+
+            {/* Skills */}
+
+            <div className="flex flex-wrap gap-3 mt-10">
+
+              {[
+                "Artificial Intelligence",
+                "Cyber Security",
+                "Machine Learning",
+                "DSA",
+                "Full Stack",
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-4 py-2 rounded-full bg-white border border-[#EAE3DA] text-[#555555]"
+                >
+                  {skill}
+                </span>
+              ))}
+
+            </div>
+
+            {/* Buttons */}
+
+            <div className="flex gap-4 mt-12 flex-wrap">
+
+              <a
+                href="https://github.com/Ananya-vit"
+                target="_blank"
+                rel="noreferrer"
+                className="px-7 py-3 rounded-2xl bg-[#1D1D1D] text-white hover:opacity-90 transition"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/ananya-b19322326"
+                target="_blank"
+                rel="noreferrer"
+                className="px-7 py-3 rounded-2xl bg-white border border-[#EAE3DA]"
+              >
+                LinkedIn
+              </a>
+
+            </div>
 
           </div>
 
-          <div className="flex flex-wrap gap-4 mt-10">
+          {/* RIGHT */}
 
-            <a
-              href="https://github.com/Ananya-vit"
-              target="_blank"
-              rel="noreferrer"
-              className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition"
-            >
-              GitHub
-            </a>
+          <div className="relative flex justify-center">
 
-            <a
-              href="https://www.linkedin.com/in/ananya-b19322326"
-              target="_blank"
-              rel="noreferrer"
-              className="px-6 py-3 rounded-xl border border-slate-300 hover:bg-white transition"
-            >
-              LinkedIn
-            </a>
+            {/* Gradient Blob */}
 
-            <a
-              href="mailto:ananyaavit@gmail.com"
-              className="px-6 py-3 rounded-xl border border-slate-300 hover:bg-white transition"
-            >
-              Email
-            </a>
+            <div className="absolute w-[420px] h-[420px] bg-gradient-to-br from-[#C5B4D4] via-[#D9C6B0] to-[#A7B5C5] rounded-full blur-[100px] opacity-40"></div>
 
-          </div>
-        </div>
+            {/* Image Card */}
 
-        {/* Right Side */}
-        <div className="flex justify-center">
+            <div className="
+              relative
+              bg-white/60
+              backdrop-blur-xl
+              p-5
+              rounded-[32px]
+              border
+              border-white/50
+              shadow-[0_30px_80px_rgba(0,0,0,0.08)]
+              animate-float
+            ">
 
-          <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-200">
+              <img
+                src="/profile.jpeg"
+                alt="Ananya"
+                className="
+                  w-[360px]
+                  md:w-[430px]
+                  rounded-[28px]
+                  object-cover
+                "
+              />
 
-            <img
-              src="/profile.jpeg"
-              alt="Ananya Singh"
-              className="w-[320px] md:w-[400px] rounded-2xl object-cover"
-            />
+            </div>
 
           </div>
 
         </div>
 
       </div>
+
     </section>
   );
 }
