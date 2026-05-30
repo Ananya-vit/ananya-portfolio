@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -9,13 +9,30 @@ import Certification from "./components/Certification";
 import Contact from "./components/Contact";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("darkMode");
+
+    if (savedTheme !== null) {
+      return JSON.parse(savedTheme);
+    }
+
+    return window.matchMedia(
+  "(prefers-color-scheme: dark)"
+).matches;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      "darkMode",
+      JSON.stringify(darkMode)
+    );
+  }, [darkMode]);
 
   return (
     <div
-      className={`min-h-screen overflow-x-hidden transition-all duration-500 ${
+      className={`min-h-screen overflow-x-hidden transition-all duration-700 ${
         darkMode
-          ? "bg-[#111111] text-white"
+          ? "bg-[#111827] text-white"
           : "bg-[#FAF7F2] text-[#1D1D1D]"
       }`}
     >
