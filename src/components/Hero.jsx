@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 
 function Hero({ darkMode }) {
+    console.log("HERO FILE LOADED");
   return (
     <section
       id="overview"
@@ -64,7 +65,7 @@ function Hero({ darkMode }) {
                 darkMode ? "text-gray-300" : "text-[#555555]"
               }`}
             >
-              Software Engineer · Cyber Security Enthusiast · GenAI Developer
+              HELLO ANANYA TEST
             </span>
           </div>
         </motion.div>
