@@ -4,55 +4,66 @@ import { motion } from "framer-motion";
 function Navbar({ darkMode, setDarkMode }) {
   return (
     <motion.nav
-    initial={{
-  opacity: 0,
-  y: -40,
-  filter: "blur(20px)",
-}}
-
-animate={{
-  opacity: 1,
-  y: 0,
-  filter: "blur(0px)",
-}}
-
-transition={{
-  duration: 1.2,
-  ease: [0.22, 1, 0.36, 1],
-}}
+      initial={{
+        opacity: 0,
+        y: -30,
+        filter: "blur(20px)",
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+      }}
+      transition={{
+        duration: 1.2,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={`
-        fixed top-6 left-1/2 -translate-x-1/2 z-50
-        w-[95%] max-w-[1400px]
-        backdrop-blur-xl
+        fixed top-5 left-1/2 -translate-x-1/2 z-50
+        w-[92%] max-w-7xl
         rounded-full
-        px-10 py-5
+        backdrop-blur-xl
         shadow-lg
+        border
         transition-all duration-300
         ${
           darkMode
-            ? "bg-[#121212]/80 border border-[#2A2A2A]"
-            : "bg-white/75 border border-[#E8E1D8]"
+            ? "bg-[#121212]/80 border-[#2A2A2A]"
+            : "bg-white/75 border-[#E8E1D8]"
         }
       `}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between px-8 py-4">
 
         {/* Logo */}
 
         <h1
-          className={`text-3xl font-bold tracking-tight ${
-            darkMode ? "text-white" : "text-[#1D1D1D]"
-          }`}
+          className={`
+            text-2xl
+            md:text-3xl
+            font-bold
+            tracking-tight
+            ${darkMode ? "text-white" : "text-[#1D1D1D]"}
+          `}
         >
           Ananya.
         </h1>
 
-        {/* Navigation */}
+        {/* Links */}
 
         <ul
-          className={`hidden md:flex items-center gap-12 text-[17px] font-medium ${
-            darkMode ? "text-gray-300" : "text-[#555555]"
-          }`}
+          className={`
+            hidden md:flex
+            items-center
+            gap-10
+            text-[16px]
+            font-medium
+            ${
+              darkMode
+                ? "text-gray-300"
+                : "text-[#555555]"
+            }
+          `}
         >
           <li>
             <a href="#overview" className="hover:text-[#B8A89F] transition">
@@ -96,14 +107,13 @@ transition={{
 
         {/* Right Side */}
 
-        <div className="flex items-center gap-4">
-
-          {/* Theme Toggle */}
+        <div className="flex items-center gap-3">
 
           <button
             onClick={() => setDarkMode(!darkMode)}
             className={`
-              w-12 h-12 rounded-full
+              w-11 h-11
+              rounded-full
               flex items-center justify-center
               transition-all duration-300
               hover:scale-105
@@ -114,23 +124,22 @@ transition={{
               }
             `}
           >
-            {darkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
+            {darkMode ? <FaSun size={16} /> : <FaMoon size={16} />}
           </button>
-
-          {/* Resume Button */}
 
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="
-              px-7 py-3
+              px-6 py-3
               rounded-full
               bg-gradient-to-r
               from-[#B8A89F]
               to-[#C5B4D4]
               text-white
               font-semibold
+              text-sm
               shadow-md
               hover:scale-105
               transition-all duration-300

@@ -1,13 +1,27 @@
 @import "tailwindcss";
 
+/* Smooth scrolling */
+
 html {
   scroll-behavior: smooth;
 }
 
+/* Global styles */
+
 body {
   margin: 0;
-  background: #FAF7F2;
+  padding: 0;
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
 }
+
+/* Remove default link styling */
+
+a {
+  text-decoration: none;
+}
+
+/* Floating animation */
 
 @keyframes float {
   0% {
@@ -26,9 +40,12 @@ body {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
-body {
-  background: #faf7f2;
-  color: #1d1d1d;
-  font-family: Inter, sans-serif;
-  overflow-x: hidden;
+
+/* Optional smooth transitions */
+
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }

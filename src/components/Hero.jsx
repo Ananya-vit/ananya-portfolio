@@ -3,128 +3,19 @@ import { motion } from "framer-motion";
 function Hero({ darkMode }) {
   return (
     <section
-  id="overview"
-  className={`
-    relative
-    min-h-screen
-    flex
-    items-center
-    justify-center
-    overflow-hidden
-    px-8
-    pt-20
-    md:pt-24
-    ${
-      darkMode
-        ? "bg-[#070B14]"
-        : "bg-[#FAF7F2]"
-    }
-  `}
->
-  {/* Left Glow */}
+      id="overview"
+      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+    >
+      {/* Background Glow */}
 
-<motion.div
-  animate={{
-    x: [0, 80, 0],
-    y: [0, -40, 0],
-  }}
-  transition={{
-    duration: 25,
-    repeat: Infinity,
-    ease: "linear",
-  }}
-  className="
-    absolute
-    top-0
-    left-0
-    w-[500px]
-    h-[500px]
-    bg-[#A7B5C5]/20
-    blur-[180px]
-    rounded-full
-  "
-/>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-[#C5B4D4]/20 blur-[120px] rounded-full"></div>
 
-{/* Right Glow */}
-
-<motion.div
-  animate={{
-    x: [0, -100, 0],
-    y: [0, 60, 0],
-  }}
-  transition={{
-    duration: 30,
-    repeat: Infinity,
-    ease: "linear",
-  }}
-  className="
-    absolute
-    bottom-0
-    right-0
-    w-[500px]
-    h-[500px]
-    bg-[#C5B4D4]/20
-    blur-[180px]
-    rounded-full
-  "
-/>
-
-{/* Center Glow */}
-
-<motion.div
-  animate={{
-    scale: [1, 1.1, 1],
-  }}
-  transition={{
-    duration: 20,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
-  className="
-    absolute
-    top-1/2
-    left-1/2
-    -translate-x-1/2
-    -translate-y-1/2
-    w-[400px]
-    h-[400px]
-    bg-[#D9C6B0]/10
-    blur-[140px]
-    rounded-full
-  "
-/>
-    
-      {/* Ambient Background */}
-
-      <motion.div
-        animate={{
-          x: [0, 80, 0],
-          y: [0, -60, 0],
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#A7B5C5]/20 blur-[180px] rounded-full"
-      />
-
-      <motion.div
-        animate={{
-          x: [0, -100, 0],
-          y: [0, 60, 0],
-        }}
-        transition={{
-          duration: 35,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#C5B4D4]/20 blur-[180px] rounded-full"
-      />
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#A7B5C5]/20 blur-[140px] rounded-full"></div>
 
       {/* Content */}
 
       <motion.div
+        className="max-w-6xl mx-auto px-8 text-center"
         initial={{
           opacity: 0,
           y: 40,
@@ -139,42 +30,51 @@ function Hero({ darkMode }) {
         }}
         transition={{
           duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
         }}
-        className="relative z-10 max-w-6xl text-center mt-20"
       >
         {/* Badge */}
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mb-10"
+          className="flex justify-center mb-10 mt-8"
+          initial={{
+            opacity: 0,
+            y: 20,
+            filter: "blur(10px)",
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          transition={{
+            delay: 0.2,
+            duration: 1,
+          }}
         >
-          <span
-            className={`
-            px-8 py-4
-            rounded-full
-            text-lg
-            font-medium
-            backdrop-blur-xl
-            border
-            ${
+          <div
+            className={`inline-flex items-center px-8 py-4 rounded-full border backdrop-blur-md shadow-sm ${
               darkMode
-                ? "bg-white/5 border-white/10 text-gray-300"
-                : "bg-white/70 border-[#E7DED5] text-[#555]"
-            }
-          `}
+                ? "bg-[#1A1A1A]/80 border-[#333]"
+                : "bg-white/70 border-[#E7DED5]"
+            }`}
           >
-            Software Engineer · Cyber Security Enthusiast · GenAI Developer
-          </span>
+            <span
+              className={`text-base md:text-lg font-medium ${
+                darkMode ? "text-gray-300" : "text-[#555555]"
+              }`}
+            >
+              Software Engineer · Cyber Security Enthusiast · GenAI Developer
+            </span>
+          </div>
         </motion.div>
 
-        {/* Main Heading */}
+        {/* Heading */}
 
         <motion.h1
           initial={{
             opacity: 0,
-            y: 40,
+            y: 30,
             filter: "blur(20px)",
           }}
           animate={{
@@ -183,39 +83,38 @@ function Hero({ darkMode }) {
             filter: "blur(0px)",
           }}
           transition={{
-            delay: 0.3,
+            delay: 0.4,
             duration: 1.2,
           }}
-          className={`
-          text-6xl
-          md:text-8xl
-          lg:text-[90px]
-          font-bold
-          leading-[0.92]
-          tracking-[-0.05em]
-          ${
-            darkMode
-              ? "text-white"
-              : "text-[#111]"
-          }
-        `}
+          className={`text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.05] tracking-tight ${
+            darkMode ? "text-white" : "text-[#1D1D1D]"
+          }`}
         >
-          Turning ideas
-          <br />
-
-          into{" "}
-
+          Turning ideas into{" "}
           <span className="bg-gradient-to-r from-[#B8A89F] via-[#A7B5C5] to-[#C5B4D4] bg-clip-text text-transparent">
             vision
           </span>
 
           <br />
 
-          and vision
-          <br />
-
-          into reality.
+          and vision into reality.
         </motion.h1>
+
+        {/* Subtitle */}
+
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.7,
+            duration: 1,
+          }}
+          className={`mt-10 text-xl md:text-2xl font-medium tracking-wide ${
+            darkMode ? "text-gray-300" : "text-[#4F4F4F]"
+          }`}
+        >
+          Computer Science Undergraduate at VIT Bhopal
+        </motion.h2>
 
         {/* Description */}
 
@@ -229,30 +128,58 @@ function Hero({ darkMode }) {
             y: 0,
           }}
           transition={{
-            delay: 0.7,
+            delay: 0.9,
+            duration: 1,
           }}
-          className={`
-          mt-10
-          text-xl
-          md:text-2xl
-          max-w-4xl
-          mx-auto
-          leading-relaxed
-          ${
-            darkMode
-              ? "text-gray-400"
-              : "text-[#555555]"
-          }
-        `}
+          className={`mt-8 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto ${
+            darkMode ? "text-gray-400" : "text-[#555555]"
+          }`}
         >
-          Computer Science Undergraduate at VIT Bhopal.
           Passionate about Artificial Intelligence,
-          Cyber Security, Machine Learning and Full Stack
-          Development. Building technology that solves
-          real-world problems and creates meaningful impact.
+          Cyber Security, Machine Learning,
+          Data Structures & Algorithms,
+          and Full Stack Development.
+
+          <br />
+          <br />
+
+          Building impactful digital experiences,
+          solving real-world problems,
+          and continuously learning emerging technologies.
         </motion.p>
 
-        {/* CTA */}
+        {/* Skills */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 1.1,
+            duration: 1,
+          }}
+          className="flex flex-wrap justify-center gap-4 mt-12"
+        >
+          {[
+            "Artificial Intelligence",
+            "Cyber Security",
+            "Machine Learning",
+            "DSA",
+            "Full Stack Development",
+          ].map((skill) => (
+            <div
+              key={skill}
+              className={`px-6 py-3 rounded-full border text-base font-medium shadow-sm ${
+                darkMode
+                  ? "bg-[#1E1E1E] border-[#333] text-gray-300"
+                  : "bg-white border-[#E7DED5] text-[#444444]"
+              }`}
+            >
+              {skill}
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Buttons */}
 
         <motion.div
           initial={{
@@ -264,92 +191,32 @@ function Hero({ darkMode }) {
             y: 0,
           }}
           transition={{
-            delay: 1,
+            delay: 1.3,
+            duration: 1,
           }}
-          className="flex justify-center gap-6 mt-14 flex-wrap"
+          className="flex justify-center gap-5 mt-14 flex-wrap"
         >
           <a
             href="#projects"
-            className="
-            px-10 py-5
-            rounded-full
-            bg-gradient-to-r
-            from-[#B8A89F]
-            to-[#C5B4D4]
-            text-white
-            text-lg
-            font-semibold
-            shadow-xl
-            hover:scale-105
-            transition-all
-          "
+            className={`px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all ${
+              darkMode
+                ? "bg-white text-[#111827]"
+                : "bg-[#1D1D1D] text-white"
+            }`}
           >
             View Projects
           </a>
 
           <a
             href="#contact"
-            className={`
-            px-10 py-5
-            rounded-full
-            border
-            text-lg
-            font-semibold
-            backdrop-blur-xl
-            transition-all
-            hover:scale-105
-            ${
+            className={`px-8 py-4 rounded-full border font-semibold hover:scale-105 transition-all ${
               darkMode
-                ? "border-white/10 bg-white/5 text-white"
-                : "border-[#E7DED5] bg-white/70 text-[#111]"
-            }
-          `}
+                ? "bg-[#1E1E1E] border-[#333] text-white"
+                : "bg-white border-[#E7DED5] text-[#1D1D1D]"
+            }`}
           >
-            Get In Touch
+            Contact Me
           </a>
-        </motion.div>
-
-        {/* Skills */}
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 1.2,
-          }}
-          className="
-          flex
-          flex-wrap
-          justify-center
-          gap-4
-          mt-16
-        "
-        >
-          {[
-            "Artificial Intelligence",
-            "Cyber Security",
-            "Machine Learning",
-            "Full Stack",
-            "DSA",
-          ].map((skill) => (
-            <div
-              key={skill}
-              className={`
-              px-5 py-3
-              rounded-full
-              text-sm
-              md:text-base
-              font-medium
-              ${
-                darkMode
-                  ? "bg-white/5 border border-white/10 text-gray-300"
-                  : "bg-white border border-[#E7DED5] text-[#444]"
-              }
-            `}
-            >
-              {skill}
-            </div>
-          ))}
         </motion.div>
       </motion.div>
     </section>

@@ -28,6 +28,14 @@ function App() {
     );
   }, [darkMode]);
 
+  useEffect(() => {
+  if (darkMode) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}, [darkMode]);
+
   return (
     <div
       className={`min-h-screen overflow-x-hidden transition-all duration-700 ${
