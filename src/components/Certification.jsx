@@ -1,180 +1,205 @@
 import { motion } from "framer-motion";
 
 function Certification({ darkMode }) {
-  const certificates = [
+  const certifications = [
     {
-      title: "Google Cybersecurity Professional Certificate",
-      issuer: "Google • Coursera",
-      file: "/certificates/google-cybersecurity.pdf",
+      title: "Introduction to Cybersecurity",
+      issuer: "Cisco Networking Academy",
+      description:
+        "Learned cybersecurity fundamentals, threat landscapes, network security concepts, and security best practices.",
+      skills: ["Cybersecurity", "Network Security", "Threat Analysis"],
     },
+
     {
-      title: "AWS Cloud Practitioner Essentials",
-      issuer: "Amazon Web Services",
-      file: "/certificates/aws.pdf",
+      title: "Blockchain and its Applications",
+      issuer: "NPTEL • IIT Kharagpur",
+      description:
+        "Studied blockchain architecture, consensus mechanisms, cryptocurrencies, smart contracts, and real-world applications.",
+      skills: ["Blockchain", "Cryptography", "Smart Contracts"],
     },
+
     {
-      title: "Machine Learning Fundamentals",
-      issuer: "Coursera",
-      file: "/certificates/ml.pdf",
+      title: "Cyber Job Simulation",
+      issuer: "Deloitte • Forage",
+      description:
+        "Completed cybersecurity simulation tasks involving risk assessment, threat analysis, and security practices.",
+      skills: ["Cyber Security", "Risk Assessment", "Security Operations"],
     },
+
+    {
+      title: "Introduction to Cybersecurity Job Simulation",
+      issuer: "Commonwealth Bank • Forage",
+      description:
+        "Worked on incident response, penetration testing, security awareness, and data analysis activities.",
+      skills: [
+        "Incident Response",
+        "Penetration Testing",
+        "Security Awareness",
+      ],
+    },
+
+    {
+      title: "GenAI Powered Data Analytics",
+      issuer: "Tata Group • Forage",
+      description:
+        "Performed exploratory data analysis, AI-powered risk profiling, and business data storytelling.",
+      skills: ["Data Analytics", "Generative AI", "Business Insights"],
+    },
+
     {
       title: "Python Programming",
-      issuer: "Infosys Springboard",
-      file: "/certificates/python.pdf",
+      issuer: "Professional Certification",
+      description:
+        "Built a strong foundation in Python programming, OOP concepts, automation, and problem solving.",
+      skills: ["Python", "OOP", "Automation"],
+    },
+
+    {
+      title: "Fundamentals of AI & ML",
+      issuer: "Professional Certification",
+      description:
+        "Learned machine learning fundamentals, supervised learning, model evaluation, and AI concepts.",
+      skills: ["AI", "Machine Learning", "Data Science"],
+    },
+
+    {
+      title: "Open Source Software",
+      issuer: "VIT Bhopal University",
+      description:
+        "Worked with Git, GitHub, Linux, FOSS licensing, and collaborative software development workflows.",
+      skills: ["Git", "GitHub", "Open Source"],
     },
   ];
 
   return (
     <section
       id="certifications"
-      className="relative py-40 px-8 overflow-hidden"
+      className="py-32 px-6 max-w-7xl mx-auto"
     >
-      {/* Ambient Glow */}
+      {/* Heading */}
 
-      <div className="absolute top-0 left-0 w-[450px] h-[450px] bg-[#A7B5C5]/10 blur-[180px] rounded-full"></div>
-
-      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-[#C5B4D4]/10 blur-[180px] rounded-full"></div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* Heading */}
-
-        <motion.h2
-          initial={{
-            opacity: 0,
-            y: 40,
-            filter: "blur(10px)",
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-          }}
-          viewport={{ once: true }}
-          className={`
-            text-5xl
-            md:text-7xl
-            font-bold
-            mb-20
-            text-center
-            ${
-              darkMode
-                ? "text-white"
-                : "text-[#111]"
-            }
-          `}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-20"
+      >
+        <h2
+          className={`text-5xl md:text-6xl font-bold mb-6 ${
+            darkMode ? "text-white" : "text-[#1D1D1D]"
+          }`}
         >
           Certifications
-        </motion.h2>
+        </h2>
 
-        {/* Cards */}
+        <p
+          className={`max-w-3xl mx-auto text-lg leading-relaxed ${
+            darkMode ? "text-gray-400" : "text-[#666]"
+          }`}
+        >
+          Industry certifications, job simulations, and continuous
+          learning across Artificial Intelligence, Cyber Security,
+          Data Analytics, Blockchain, Python, and Software Development.
+        </p>
+      </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+      {/* Stats */}
 
-          {certificates.map((cert, index) => (
-            <motion.div
-              key={cert.title}
-              initial={{
-                opacity: 0,
-                y: 50,
-                filter: "blur(10px)",
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                filter: "blur(0px)",
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.12,
-                duration: 0.8,
-              }}
-              whileHover={{
-                y: -8,
-                scale: 1.02,
-              }}
-              className={`
-                p-8
-                rounded-[32px]
-                backdrop-blur-xl
-                border
-                transition-all
-                ${
-                  darkMode
-                    ? "bg-white/5 border-white/10"
-                    : "bg-white/70 border-[#E7DED5]"
-                }
-              `}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16">
+        {[
+          ["8+", "Certifications"],
+          ["3", "Job Simulations"],
+          ["3", "Cyber Security"],
+          ["2", "AI & ML"],
+        ].map(([number, label]) => (
+          <div
+            key={label}
+            className={`p-6 rounded-3xl text-center border ${
+              darkMode
+                ? "bg-[#111111] border-[#222]"
+                : "bg-white border-[#E7DED5]"
+            }`}
+          >
+            <h3
+              className={`text-3xl font-bold ${
+                darkMode ? "text-white" : "text-[#1D1D1D]"
+              }`}
             >
-              <p
-                className={`
-                  text-sm
-                  uppercase
-                  tracking-widest
-                  mb-3
-                  ${
-                    darkMode
-                      ? "text-gray-500"
-                      : "text-gray-400"
-                  }
-                `}
-              >
-                Certification
-              </p>
+              {number}
+            </h3>
 
-              <h3
-                className={`
-                  text-2xl
-                  font-semibold
-                  leading-snug
-                  ${
-                    darkMode
-                      ? "text-white"
-                      : "text-[#111]"
-                  }
-                `}
-              >
-                {cert.title}
-              </h3>
+            <p
+              className={`mt-2 ${
+                darkMode ? "text-gray-400" : "text-[#666]"
+              }`}
+            >
+              {label}
+            </p>
+          </div>
+        ))}
+      </div>
 
-              <p
-                className={`
-                  mt-4
-                  ${
-                    darkMode
-                      ? "text-gray-400"
-                      : "text-[#666]"
-                  }
-                `}
-              >
+      {/* Cards */}
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {certifications.map((cert, index) => (
+          <motion.div
+            key={cert.title}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.08,
+            }}
+            whileHover={{
+              y: -8,
+            }}
+            className={`p-8 rounded-[32px] border transition-all duration-300 ${
+              darkMode
+                ? "bg-[#111111] border-[#222]"
+                : "bg-white border-[#E7DED5]"
+            }`}
+          >
+            <div className="mb-4">
+              <p className="text-sm text-[#B8A89F] font-semibold uppercase tracking-wider">
                 {cert.issuer}
               </p>
 
-              <a
-                href={cert.file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-block
-                  mt-8
-                  px-6
-                  py-3
-                  rounded-full
-                  bg-gradient-to-r
-                  from-[#B8A89F]
-                  to-[#C5B4D4]
-                  text-white
-                  font-medium
-                  hover:scale-105
-                  transition-all
-                "
+              <h3
+                className={`text-2xl font-bold mt-2 ${
+                  darkMode ? "text-white" : "text-[#1D1D1D]"
+                }`}
               >
-                View Certificate
-              </a>
-            </motion.div>
-          ))}
+                {cert.title}
+              </h3>
+            </div>
 
-        </div>
+            <p
+              className={`leading-relaxed mb-6 ${
+                darkMode ? "text-gray-400" : "text-[#666]"
+              }`}
+            >
+              {cert.description}
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              {cert.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className={`px-4 py-2 rounded-full text-sm font-medium ${
+                    darkMode
+                      ? "bg-[#1C1C1C] text-gray-300"
+                      : "bg-[#F4F1EC] text-[#555]"
+                  }`}
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
