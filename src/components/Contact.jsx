@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
@@ -6,116 +7,190 @@ import {
 } from "react-icons/fa";
 
 function Contact({ darkMode }) {
-  const contacts = [
-    {
-      title: "Email",
-      value: "ananyaavit@gmail.com",
-      link: "mailto:ananyaavit@gmail.com",
-      icon: <FaEnvelope size={28} />,
-    },
-    {
-      title: "LinkedIn",
-      value: "Connect Professionally",
-      link: "https://www.linkedin.com/in/ananya-b19322326",
-      icon: <FaLinkedin size={28} />,
-    },
-    {
-      title: "GitHub",
-      value: "github.com/Ananya-vit",
-      link: "https://github.com/Ananya-vit",
-      icon: <FaGithub size={28} />,
-    },
-    {
-      title: "Instagram",
-      value: "@yeah_ananyyaa",
-      link: "https://www.instagram.com/yeah_ananyyaa",
-      icon: <FaInstagram size={28} />,
-    },
-  ];
-
   return (
     <section
       id="contact"
-      className="py-32 px-8 max-w-7xl mx-auto"
+      className="relative py-40 px-8 overflow-hidden"
     >
-      <p
-        className={`uppercase tracking-[0.2em] text-sm font-semibold mb-4 ${
-          darkMode ? "text-[#C5B4D4]" : "text-[#B8A89F]"
-        }`}
-      >
-        Contact
-      </p>
+      {/* Ambient Glow */}
 
-      <h2
-        className={`text-5xl md:text-6xl font-bold mb-6 transition-all duration-500 ${
-          darkMode ? "text-white" : "text-[#1D1D1D]"
-        }`}
-      >
-        Let's Connect
-      </h2>
+      <div className="absolute top-0 left-0 w-[450px] h-[450px] bg-[#A7B5C5]/10 blur-[180px] rounded-full"></div>
 
-      <p
-        className={`text-xl max-w-3xl mb-14 transition-all duration-500 ${
-          darkMode ? "text-[#B8BDC9]" : "text-[#555555]"
-        }`}
-      >
-        Open to internships, collaborations,
-        exciting projects, and opportunities
-        to build meaningful technology.
-      </p>
+      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-[#C5B4D4]/10 blur-[180px] rounded-full"></div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="max-w-5xl mx-auto text-center relative z-10">
 
-        {contacts.map((item, index) => (
-          <a
-            key={index}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`p-8 rounded-[30px] border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+        <motion.h2
+          initial={{
+            opacity: 0,
+            y: 40,
+            filter: "blur(10px)",
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className={`
+            text-5xl
+            md:text-7xl
+            font-bold
+            leading-tight
+            ${
               darkMode
-                ? "bg-[#181A22]/80 border-[#2A2D38]"
-                : "bg-white/80 border-[#E7DED5]"
-            }`}
-          >
-            <div
-              className={`mb-5 ${
-                darkMode ? "text-white" : "text-[#1D1D1D]"
-              }`}
-            >
-              {item.icon}
-            </div>
-
-            <h3
-              className={`text-2xl font-semibold ${
-                darkMode ? "text-white" : "text-[#1D1D1D]"
-              }`}
-            >
-              {item.title}
-            </h3>
-
-            <p
-              className={`mt-3 text-lg ${
-                darkMode ? "text-[#B8BDC9]" : "text-[#555555]"
-              }`}
-            >
-              {item.value}
-            </p>
-          </a>
-        ))}
-
-      </div>
-
-      {/* Footer */}
-
-      <div className="mt-24 text-center">
-        <p
-          className={`text-sm ${
-            darkMode ? "text-gray-500" : "text-[#888888]"
-          }`}
+                ? "text-white"
+                : "text-[#111]"
+            }
+          `}
         >
-          Designed & Developed by Ananya Singh
+          Let's Build
+          <br />
+          Something Meaningful.
+        </motion.h2>
+
+        <motion.p
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.2,
+          }}
+          className={`
+            mt-8
+            text-xl
+            leading-relaxed
+            ${
+              darkMode
+                ? "text-gray-400"
+                : "text-[#666]"
+            }
+          `}
+        >
+          Open to internships, collaborations,
+          and opportunities in AI, Cyber Security,
+          Full Stack Development and emerging technologies.
+        </motion.p>
+
+        {/* Social Cards */}
+
+        <div className="flex flex-wrap justify-center gap-5 mt-16">
+
+          <a
+            href="mailto:yourmail@gmail.com"
+            className={`
+              px-8 py-4
+              rounded-full
+              flex items-center gap-3
+              backdrop-blur-xl
+              border
+              transition-all
+              hover:scale-105
+              ${
+                darkMode
+                  ? "bg-white/5 border-white/10 text-white"
+                  : "bg-white/70 border-[#E7DED5] text-[#111]"
+              }
+            `}
+          >
+            <FaEnvelope />
+            Email
+          </a>
+
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+            className={`
+              px-8 py-4
+              rounded-full
+              flex items-center gap-3
+              backdrop-blur-xl
+              border
+              transition-all
+              hover:scale-105
+              ${
+                darkMode
+                  ? "bg-white/5 border-white/10 text-white"
+                  : "bg-white/70 border-[#E7DED5] text-[#111]"
+              }
+            `}
+          >
+            <FaLinkedin />
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noreferrer"
+            className={`
+              px-8 py-4
+              rounded-full
+              flex items-center gap-3
+              backdrop-blur-xl
+              border
+              transition-all
+              hover:scale-105
+              ${
+                darkMode
+                  ? "bg-white/5 border-white/10 text-white"
+                  : "bg-white/70 border-[#E7DED5] text-[#111]"
+              }
+            `}
+          >
+            <FaGithub />
+            GitHub
+          </a>
+
+          <a
+            href="https://instagram.com/yeah_ananyyaa"
+            target="_blank"
+            rel="noreferrer"
+            className={`
+              px-8 py-4
+              rounded-full
+              flex items-center gap-3
+              backdrop-blur-xl
+              border
+              transition-all
+              hover:scale-105
+              ${
+                darkMode
+                  ? "bg-white/5 border-white/10 text-white"
+                  : "bg-white/70 border-[#E7DED5] text-[#111]"
+              }
+            `}
+          >
+            <FaInstagram />
+            Instagram
+          </a>
+
+        </div>
+
+        {/* Footer */}
+
+        <p
+          className={`
+            mt-20
+            text-sm
+            ${
+              darkMode
+                ? "text-gray-500"
+                : "text-gray-400"
+            }
+          `}
+        >
+          © 2026 Ananya. Crafted with React & Tailwind CSS.
         </p>
+
       </div>
     </section>
   );

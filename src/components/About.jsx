@@ -1,24 +1,123 @@
+import { motion } from "framer-motion";
+
 function About({ darkMode }) {
   return (
     <section
       id="about"
-      className="py-32 px-8 max-w-7xl mx-auto"
+      className="relative py-40 px-8 overflow-hidden"
     >
-      <div className="grid md:grid-cols-2 gap-20 items-center">
+      {/* Ambient Glow */}
 
-        {/* Image */}
+      <motion.div
+        animate={{
+          x: [0, 80, 0],
+          y: [0, -40, 0],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="
+          absolute
+          top-0
+          left-0
+          w-[450px]
+          h-[450px]
+          bg-[#A7B5C5]/10
+          blur-[180px]
+          rounded-full
+        "
+      />
 
-        <div className="flex justify-center">
-          <div className="relative">
+      <motion.div
+        animate={{
+          x: [0, -80, 0],
+          y: [0, 60, 0],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="
+          absolute
+          bottom-0
+          right-0
+          w-[450px]
+          h-[450px]
+          bg-[#C5B4D4]/10
+          blur-[180px]
+          rounded-full
+        "
+      />
 
-            <div className="absolute inset-0 bg-[#C5B4D4]/20 blur-3xl rounded-full"></div>
+      <div className="max-w-7xl mx-auto relative z-10">
 
+        <motion.h2
+          initial={{
+            opacity: 0,
+            y: 40,
+            filter: "blur(10px)",
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.8,
+          }}
+          className={`
+            text-5xl
+            md:text-7xl
+            font-bold
+            mb-20
+            text-center
+            ${
+              darkMode
+                ? "text-white"
+                : "text-[#111]"
+            }
+          `}
+        >
+          About Me
+        </motion.h2>
+
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+
+          {/* Image */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -50,
+              filter: "blur(10px)",
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              filter: "blur(0px)",
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.8,
+            }}
+            className="flex justify-center"
+          >
             <div
-              className={`relative p-3 rounded-[36px] backdrop-blur-xl border transition-all duration-500 ${
-                darkMode
-                  ? "bg-[#181A22]/80 border-[#2A2D38]"
-                  : "bg-white/70 border-[#E7DED5]"
-              }`}
+              className={`
+                p-3
+                rounded-[36px]
+                backdrop-blur-xl
+                border
+                ${
+                  darkMode
+                    ? "bg-white/5 border-white/10"
+                    : "bg-white/70 border-[#E7DED5]"
+                }
+              `}
             >
               <img
                 src="/profile.jpeg"
@@ -28,81 +127,61 @@ function About({ darkMode }) {
                   md:w-[420px]
                   rounded-[28px]
                   shadow-2xl
-                  object-cover
                 "
               />
             </div>
+          </motion.div>
 
-          </div>
-        </div>
+          {/* Text */}
 
-        {/* Content */}
-
-        <div>
-
-          <p
-            className={`uppercase tracking-[0.2em] text-sm font-semibold mb-4 ${
-              darkMode ? "text-[#C5B4D4]" : "text-[#B8A89F]"
-            }`}
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 50,
+              filter: "blur(10px)",
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              filter: "blur(0px)",
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.8,
+            }}
           >
-            About
-          </p>
-
-          <h2
-            className={`text-5xl md:text-6xl font-bold mb-8 transition-all duration-500 ${
-              darkMode ? "text-white" : "text-[#1D1D1D]"
-            }`}
-          >
-            About Me
-          </h2>
-
-          <p
-            className={`text-xl leading-9 transition-all duration-500 ${
-              darkMode ? "text-[#B8BDC9]" : "text-[#555555]"
-            }`}
-          >
-            I'm Ananya, a Computer Science Undergraduate
-            at Vellore Institute of Technology, Bhopal,
-            with interests in Artificial Intelligence,
-            Cyber Security, Generative & Agentic AI,
-            Machine Learning, Data Structures &
-            Algorithms, and Full Stack Development.
-
-            <br />
-            <br />
-
-            I enjoy building impactful products,
-            exploring emerging technologies,
-            and solving real-world problems through
-            technology, innovation, and continuous learning.
-          </p>
-
-          <div className="flex flex-wrap gap-3 mt-10">
-
-            {[
-              "Artificial Intelligence",
-              "Cyber Security",
-              "Generative AI",
-              "Machine Learning",
-              "DSA",
-              "Full Stack",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className={`px-5 py-2 rounded-full border text-sm font-medium transition-all duration-500 ${
+            <p
+              className={`
+                text-xl
+                md:text-2xl
+                leading-10
+                ${
                   darkMode
-                    ? "bg-[#181A22] border-[#2A2D38] text-white"
-                    : "bg-white border-[#E7DED5] text-[#444444]"
-                }`}
-              >
-                {tag}
-              </span>
-            ))}
+                    ? "text-gray-400"
+                    : "text-[#555555]"
+                }
+              `}
+            >
+              I'm Ananya, a Computer Science
+              Undergraduate at Vellore Institute
+              of Technology, Bhopal, with interests
+              in Artificial Intelligence, Cyber Security,
+              Generative & Agentic AI, Machine Learning,
+              Data Structures & Algorithms, and
+              Full Stack Development.
 
-          </div>
+              <br />
+              <br />
+
+              I enjoy building impactful projects,
+              learning emerging technologies,
+              building and learning, and solving
+              real-world problems through technology
+              and innovation.
+            </p>
+          </motion.div>
 
         </div>
-
       </div>
     </section>
   );

@@ -1,142 +1,180 @@
+import { motion } from "framer-motion";
+
 function Certification({ darkMode }) {
-  const certifications = [
+  const certificates = [
     {
-      title: "Introduction to Cybersecurity",
-      issuer: "Cisco Networking Academy",
-      date: "2026",
-      link: "/certificate-images/cisco.jpg",
+      title: "Google Cybersecurity Professional Certificate",
+      issuer: "Google • Coursera",
+      file: "/certificates/google-cybersecurity.pdf",
     },
     {
-      title: "Blockchain and its Applications",
-      issuer: "NPTEL - IIT Kharagpur",
-      date: "2026",
-      link: "/certificate-images/blockchain.jpg",
+      title: "AWS Cloud Practitioner Essentials",
+      issuer: "Amazon Web Services",
+      file: "/certificates/aws.pdf",
     },
     {
-      title: "Open Source Software",
-      issuer: "VIT Bhopal University",
-      date: "2026",
-      link: "/certificate-images/opensource.jpg",
+      title: "Machine Learning Fundamentals",
+      issuer: "Coursera",
+      file: "/certificates/ml.pdf",
     },
     {
-      title: "Cyber Job Simulation",
-      issuer: "Deloitte (Forage)",
-      date: "2026",
-      link: "/certificate-images/deloitte.jpg",
-    },
-    {
-      title: "Introduction to Cybersecurity Job Simulation",
-      issuer: "Commonwealth Bank (Forage)",
-      date: "2026",
-      link: "/certificate-images/commonwealth.jpg",
-    },
-    {
-      title: "GenAI Powered Data Analytics Job Simulation",
-      issuer: "Tata Group (Forage)",
-      date: "2026",
-      link: "/certificate-images/tata.jpg",
-    },
-    {
-      title: "Fundamentals of AI & ML",
-      issuer: "VITyarthi",
-      date: "2024",
-      link: "/certificate-images/aiml.jpg",
-    },
-    {
-      title: "Python Essentials",
-      issuer: "VITyarthi",
-      date: "2025",
-      link: "/certificate-images/python.jpg",
+      title: "Python Programming",
+      issuer: "Infosys Springboard",
+      file: "/certificates/python.pdf",
     },
   ];
 
   return (
     <section
       id="certifications"
-      className="py-32 px-8 max-w-7xl mx-auto"
+      className="relative py-40 px-8 overflow-hidden"
     >
-      <p
-        className={`uppercase tracking-[0.2em] text-sm font-semibold mb-4 ${
-          darkMode ? "text-[#C5B4D4]" : "text-[#B8A89F]"
-        }`}
-      >
-        Achievements
-      </p>
+      {/* Ambient Glow */}
 
-      <h2
-        className={`text-5xl md:text-6xl font-bold mb-6 transition-all duration-500 ${
-          darkMode ? "text-white" : "text-[#1D1D1D]"
-        }`}
-      >
-        Certifications
-      </h2>
+      <div className="absolute top-0 left-0 w-[450px] h-[450px] bg-[#A7B5C5]/10 blur-[180px] rounded-full"></div>
 
-      <p
-        className={`text-xl max-w-3xl mb-14 transition-all duration-500 ${
-          darkMode ? "text-[#B8BDC9]" : "text-[#555555]"
-        }`}
-      >
-        Professional certifications and learning experiences
-        across Artificial Intelligence, Cyber Security,
-        Blockchain, Data Analytics, and Software Development.
-      </p>
+      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-[#C5B4D4]/10 blur-[180px] rounded-full"></div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {certifications.map((cert, index) => (
-          <div
-            key={index}
-            className={`rounded-[30px] p-8 border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+      <div className="max-w-7xl mx-auto relative z-10">
+
+        {/* Heading */}
+
+        <motion.h2
+          initial={{
+            opacity: 0,
+            y: 40,
+            filter: "blur(10px)",
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          viewport={{ once: true }}
+          className={`
+            text-5xl
+            md:text-7xl
+            font-bold
+            mb-20
+            text-center
+            ${
               darkMode
-                ? "bg-[#181A22]/80 border-[#2A2D38]"
-                : "bg-white/80 border-[#E7DED5]"
-            }`}
-          >
-            <h3
-              className={`text-2xl font-semibold leading-snug ${
-                darkMode ? "text-white" : "text-[#1D1D1D]"
-              }`}
-            >
-              {cert.title}
-            </h3>
+                ? "text-white"
+                : "text-[#111]"
+            }
+          `}
+        >
+          Certifications
+        </motion.h2>
 
-            <p
-              className={`mt-4 text-lg ${
-                darkMode ? "text-[#B8BDC9]" : "text-[#555555]"
-              }`}
-            >
-              {cert.issuer}
-            </p>
+        {/* Cards */}
 
-            <p
-              className={`mt-2 ${
-                darkMode ? "text-gray-400" : "text-[#888888]"
-              }`}
-            >
-              {cert.date}
-            </p>
+        <div className="grid md:grid-cols-2 gap-8">
 
-            <a
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                inline-block
-                mt-6
-                px-6 py-3
-                rounded-full
-                bg-gradient-to-r
-                from-[#B8A89F]
-                to-[#C5B4D4]
-                text-white
-                font-semibold
-                hover:scale-105
+          {certificates.map((cert, index) => (
+            <motion.div
+              key={cert.title}
+              initial={{
+                opacity: 0,
+                y: 50,
+                filter: "blur(10px)",
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+              }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.12,
+                duration: 0.8,
+              }}
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+              }}
+              className={`
+                p-8
+                rounded-[32px]
+                backdrop-blur-xl
+                border
                 transition-all
-              "
+                ${
+                  darkMode
+                    ? "bg-white/5 border-white/10"
+                    : "bg-white/70 border-[#E7DED5]"
+                }
+              `}
             >
-              View Certificate
-            </a>
-          </div>
-        ))}
+              <p
+                className={`
+                  text-sm
+                  uppercase
+                  tracking-widest
+                  mb-3
+                  ${
+                    darkMode
+                      ? "text-gray-500"
+                      : "text-gray-400"
+                  }
+                `}
+              >
+                Certification
+              </p>
+
+              <h3
+                className={`
+                  text-2xl
+                  font-semibold
+                  leading-snug
+                  ${
+                    darkMode
+                      ? "text-white"
+                      : "text-[#111]"
+                  }
+                `}
+              >
+                {cert.title}
+              </h3>
+
+              <p
+                className={`
+                  mt-4
+                  ${
+                    darkMode
+                      ? "text-gray-400"
+                      : "text-[#666]"
+                  }
+                `}
+              >
+                {cert.issuer}
+              </p>
+
+              <a
+                href={cert.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  inline-block
+                  mt-8
+                  px-6
+                  py-3
+                  rounded-full
+                  bg-gradient-to-r
+                  from-[#B8A89F]
+                  to-[#C5B4D4]
+                  text-white
+                  font-medium
+                  hover:scale-105
+                  transition-all
+                "
+              >
+                View Certificate
+              </a>
+            </motion.div>
+          ))}
+
+        </div>
       </div>
     </section>
   );

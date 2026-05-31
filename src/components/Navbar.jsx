@@ -1,8 +1,25 @@
 import { FaMoon, FaSun } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function Navbar({ darkMode, setDarkMode }) {
   return (
-    <nav
+    <motion.nav
+    initial={{
+  opacity: 0,
+  y: -40,
+  filter: "blur(20px)",
+}}
+
+animate={{
+  opacity: 1,
+  y: 0,
+  filter: "blur(0px)",
+}}
+
+transition={{
+  duration: 1.2,
+  ease: [0.22, 1, 0.36, 1],
+}}
       className={`
         fixed top-6 left-1/2 -translate-x-1/2 z-50
         w-[95%] max-w-[1400px]
@@ -123,7 +140,7 @@ function Navbar({ darkMode, setDarkMode }) {
           </a>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

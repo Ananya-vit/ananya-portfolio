@@ -1,68 +1,142 @@
+import { motion } from "framer-motion";
+
 function Skills({ darkMode }) {
   const skills = [
-    "Artificial Intelligence",
-    "Cyber Security",
-    "Generative AI",
-    "Machine Learning",
-    "Data Structures & Algorithms",
-    "Full Stack Development",
-    "React",
-    "JavaScript",
-    "Python",
-    "C++",
-    "MongoDB",
-    "Git & GitHub",
+    {
+      title: "Artificial Intelligence",
+      desc: "Machine Learning, Deep Learning, Generative AI, Agentic AI",
+    },
+    {
+      title: "Cyber Security",
+      desc: "Network Security, Digital Forensics, Ethical Hacking",
+    },
+    {
+      title: "Full Stack Development",
+      desc: "React, Node.js, MongoDB, REST APIs",
+    },
+    {
+      title: "Programming",
+      desc: "Python, C++, JavaScript",
+    },
+    {
+      title: "Data Structures & Algorithms",
+      desc: "Problem Solving, Competitive Programming",
+    },
+    {
+      title: "Tools & Platforms",
+      desc: "Git, GitHub, Linux, VS Code",
+    },
   ];
 
   return (
     <section
       id="skills"
-      className="py-32 px-8 max-w-7xl mx-auto"
+      className="relative py-40 px-8 overflow-hidden"
     >
-      <p
-        className={`uppercase tracking-[0.2em] text-sm font-semibold mb-4 ${
-          darkMode ? "text-[#C5B4D4]" : "text-[#B8A89F]"
-        }`}
-      >
-        Expertise
-      </p>
+      {/* Glow */}
 
-      <h2
-        className={`text-5xl md:text-6xl font-bold mb-6 transition-all duration-500 ${
-          darkMode ? "text-white" : "text-[#1D1D1D]"
-        }`}
-      >
-        Skills & Technologies
-      </h2>
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#A7B5C5]/10 blur-[180px] rounded-full"></div>
 
-      <p
-        className={`text-xl max-w-3xl mb-14 transition-all duration-500 ${
-          darkMode ? "text-[#B8BDC9]" : "text-[#555555]"
-        }`}
-      >
-        A blend of software engineering, artificial intelligence,
-        cybersecurity, and modern web development technologies.
-      </p>
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C5B4D4]/10 blur-[180px] rounded-full"></div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skills.map((skill) => (
-          <div
-            key={skill}
-            className={`p-8 rounded-[28px] border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+      <div className="max-w-7xl mx-auto relative z-10">
+
+        <motion.h2
+          initial={{
+            opacity: 0,
+            y: 40,
+            filter: "blur(10px)",
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          viewport={{ once: true }}
+          className={`
+            text-5xl
+            md:text-7xl
+            font-bold
+            mb-20
+            text-center
+            ${
               darkMode
-                ? "bg-[#181A22]/80 border-[#2A2D38]"
-                : "bg-white/80 border-[#E7DED5]"
-            }`}
-          >
-            <h3
-              className={`text-xl font-semibold ${
-                darkMode ? "text-white" : "text-[#1D1D1D]"
-              }`}
+                ? "text-white"
+                : "text-[#111]"
+            }
+          `}
+        >
+          Skills
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.title}
+              initial={{
+                opacity: 0,
+                y: 50,
+                filter: "blur(10px)",
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+              }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.8,
+              }}
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+              }}
+              className={`
+                p-8
+                rounded-[32px]
+                backdrop-blur-xl
+                border
+                transition-all
+                ${
+                  darkMode
+                    ? "bg-white/5 border-white/10"
+                    : "bg-white/70 border-[#E7DED5]"
+                }
+              `}
             >
-              {skill}
-            </h3>
-          </div>
-        ))}
+              <h3
+                className={`
+                  text-2xl
+                  font-semibold
+                  mb-4
+                  ${
+                    darkMode
+                      ? "text-white"
+                      : "text-[#111]"
+                  }
+                `}
+              >
+                {skill.title}
+              </h3>
+
+              <p
+                className={`
+                  leading-relaxed
+                  ${
+                    darkMode
+                      ? "text-gray-400"
+                      : "text-[#666]"
+                  }
+                `}
+              >
+                {skill.desc}
+              </p>
+            </motion.div>
+          ))}
+
+        </div>
       </div>
     </section>
   );
