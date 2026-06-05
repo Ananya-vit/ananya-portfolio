@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import AltVerse from "./pages/AltVerse";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -17,8 +20,8 @@ function App() {
     }
 
     return window.matchMedia(
-  "(prefers-color-scheme: dark)"
-).matches;
+      "(prefers-color-scheme: dark)"
+    ).matches;
   });
 
   useEffect(() => {
@@ -29,12 +32,12 @@ function App() {
   }, [darkMode]);
 
   useEffect(() => {
-  if (darkMode) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-}, [darkMode]);
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <div
@@ -44,22 +47,36 @@ function App() {
           : "bg-[#FAF7F2] text-[#1D1D1D]"
       }`}
     >
-      <Navbar
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar
+                darkMode={darkMode}
+                setDarkMode={setDarkMode}
+              />
 
-      <Hero darkMode={darkMode} />
+              <Hero darkMode={darkMode} />
 
-      <Project darkMode={darkMode} />
+              <Project darkMode={darkMode} />
 
-      <About darkMode={darkMode} />
+              <About darkMode={darkMode} />
 
-      <Skills darkMode={darkMode} />
+              <Skills darkMode={darkMode} />
 
-      <Certification darkMode={darkMode} />
+              <Certification darkMode={darkMode} />
 
-      <Contact darkMode={darkMode} />
+              <Contact darkMode={darkMode} />
+            </>
+          }
+        />
+
+        <Route
+          path="/altverse"
+          element={<AltVerse />}
+        />
+      </Routes>
     </div>
   );
 }
