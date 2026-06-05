@@ -103,9 +103,10 @@ function Project() {
       </a>
 
       <a
-        href="https://github.com/alt-verse"
+        href="https://github.com/Ananya-vit/AltVerse"
         target="_blank"
         rel="noreferrer"
+        onClick={(e) => e.stopPropagation()}
         className="px-5 py-3 rounded-xl border border-white/10"
       >
         GitHub

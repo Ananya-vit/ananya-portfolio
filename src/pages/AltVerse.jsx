@@ -139,7 +139,7 @@ function AltVerse() {
             </a>
 
             <a
-              href="https://github.com/Ananya-vit/AltVerse.git"
+              href="https://github.com/Ananya-vit/AltVerse"
               target="_blank"
               rel="noreferrer"
               className="px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition"
