@@ -96,10 +96,7 @@ function StudyFlowAI() {
       title: "PDF Processing",
       desc: "Inconsistent extraction artifacts due to varying structural columns, integrated images, and character encoding schemes in academic papers.",
     },
-    {
-      title: "Prompt Engineering",
-      desc: "Halting hallucinated schemas and maintaining rigid formatting outputs uniformly across disparate document length ranges and topical themes.",
-    },
+    
     {
       title: "Scalability",
       desc: "Addressing processing limits, token window boundaries, and payload transmission dropouts when handling massive, textbook-length academic files.",
