@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import AltVerse from "./pages/AltVerse";
+import StudyFlow from "./pages/StudyFlow";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -71,7 +72,8 @@ function App() {
             </>
           }
         />
-
+        <Route path="/studyflow" 
+        element={<StudyFlow />} />
         <Route
           path="/altverse"
           element={<AltVerse />}

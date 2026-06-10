@@ -26,6 +26,107 @@ function Project() {
           Full Stack Development and real-world impact.
         </p>
 <div
+ onClick={() => navigate("/studyflow")}
+  className="
+  mt-16
+  rounded-[32px]
+  border
+  border-white/10
+  backdrop-blur-xl
+  p-10
+  transition-all
+  duration-500
+  hover:-translate-y-2
+  hover:border-white/20
+  hover:shadow-2xl
+  "
+>
+  <div className="flex flex-col md:flex-row justify-between gap-8">
+
+    <div>
+      <span className="px-3 py-1 rounded-full text-sm border border-green-500/30 text-green-400">
+        Featured Project • MVP Live
+      </span>
+
+      <h3 className="text-4xl font-bold mt-4">
+        StudyFlow AI
+      </h3>
+
+      <div className="mt-2">
+        <span className="text-sm tracking-wide text-green-400">
+          Currently Under Active Development
+        </span>
+      </div>
+
+      <p className="text-gray-400 mt-4 max-w-xl">
+        Designed and developed an AI-powered learning platform that transforms
+        PDFs into summaries, flashcards, quizzes and study notes. Building the
+        MVP required solving challenges related to PDF content extraction,
+        prompt engineering, AI response consistency and user workflow design.
+        The project is currently being expanded with embedding-based semantic
+        search, vector databases, knowledge graphs and personalized study
+        planning features.
+      </p>
+
+      <div className="mt-8 grid md:grid-cols-3 gap-4">
+
+        <div className="rounded-2xl bg-white/5 p-5">
+          <h4 className="font-semibold mb-2">Challenge</h4>
+          <p className="text-sm text-gray-400">
+            Handling PDF extraction, inconsistent document formats and maintaining reliable AI-generated outputs.
+          </p>
+        </div>
+
+        <div className="rounded-2xl bg-white/5 p-5">
+          <h4 className="font-semibold mb-2">Solution</h4>
+          <p className="text-sm text-gray-400">
+            Built an automated workflow that converts study material into interactive learning resources.
+          </p>
+        </div>
+
+        <div className="rounded-2xl bg-white/5 p-5">
+          <h4 className="font-semibold mb-2">Next Phase</h4>
+          <p className="text-sm text-gray-400">
+            Implementing embeddings, vector search, knowledge graphs, study planners and scalable document processing.
+          </p>
+        </div>
+
+      </div>
+
+      <div className="flex flex-wrap gap-2 mt-6">
+        <span className="px-3 py-1 rounded-full bg-white/5">Next.js</span>
+        <span className="px-3 py-1 rounded-full bg-white/5">TypeScript</span>
+        <span className="px-3 py-1 rounded-full bg-white/5">React</span>
+        <span className="px-3 py-1 rounded-full bg-white/5">Tailwind CSS</span>
+        <span className="px-3 py-1 rounded-full bg-white/5">Groq API</span>
+      </div>
+    </div>
+
+    <div className="flex items-end gap-4">
+      <a
+        href="https://studyyflowai.vercel.app"
+        onClick={(e) => e.stopPropagation()}
+        target="_blank"
+        rel="noreferrer"
+        className="px-5 py-3 rounded-xl bg-white text-black font-medium"
+      >
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/Ananya-vit/studyflow-ai"
+        onClick={(e) => e.stopPropagation()}
+        target="_blank"
+        rel="noreferrer"
+        className="px-5 py-3 rounded-xl border border-white/10"
+      >
+        GitHub
+      </a>
+    </div>
+
+  </div>
+</div>
+<div
   onClick={() => navigate("/altverse")}
   className="
   mt-16
@@ -46,7 +147,7 @@ function Project() {
 
     <div>
       <span className="px-3 py-1 rounded-full text-sm border border-white/10">
-        Featured Project
+        Phase 1 Complete
       </span>
 
       <h3 className="text-4xl font-bold mt-4">
