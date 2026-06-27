@@ -1,222 +1,165 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import AltVerseModal from "./AltVerseModal";
-function Project() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate();
+﻿import { motion } from "framer-motion";
 
+const projects = [
+  {
+    title: "ReServe",
+    description:
+      "A food donation & redistribution platform connecting restaurants, supermarkets, NGOs, and volunteers to reduce food waste and support communities.",
+    tags: ["React", "Node.js", "PostgreSQL"],
+    href: "/reserve",
+    liveUrl: "https://reeserve.vercel.app/", 
+    githubUrl: "https://github.com/Ananya-vit/ReServe", 
+  },
+  {
+    title: "AltVerse",
+    description:
+      "A storytelling platform that blends immersive visuals, intuitive navigation, and polished UI to showcase my work and ideas.",
+    tags: ["React", "Tailwind", "Animation"],
+    href: "/altverse",
+    liveUrl: "https://alt-verse.vercel.app",
+    githubUrl: "https://github.com/Ananya-vit/AltVerse",
+  },
+  {
+    title: "StudyFlow",
+    description:
+      "An AI-assisted learning platform designed to help students manage their workflow, build study habits, and learn smarter.",
+    tags: ["React", "AI", "UX"],
+    href: "/studyflow",
+    liveUrl: "https://studyyflowai.vercel.app",
+    githubUrl: "https://github.com/Ananya-vit/studyflow-ai",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio crafted to highlight projects, certifications, and technical skills with a polished dark/light theme.",
+    tags: ["React", "Vite", "Tailwind"],
+    href: "#overview",
+    liveUrl: "#",
+    githubUrl: "https://github.com/Ananya-vit", // Add your profile or repo link here
+  },
+];
+
+function Project({ darkMode }) {
   return (
-    <section
-      id="projects"
-      className="relative py-40 px-8 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        <p className="uppercase tracking-[0.3em] text-sm text-gray-400 mb-4">
-          Selected Work
-        </p>
-
-        <h2 className="text-5xl md:text-7xl font-bold">
+    <section id="projects" className="py-24 px-8 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="mb-16 text-center"
+      >
+        <p className="text-sm uppercase tracking-[0.35em] font-semibold text-[#B8A89F]">
           Projects
-        </h2>
-
-        <p className="mt-6 text-xl text-gray-400 max-w-2xl">
-          Currently building projects focused on
-          Artificial Intelligence, Cyber Security,
-          Full Stack Development and real-world impact.
         </p>
-<div
- onClick={() => navigate("/studyflow")}
-  className="
-  mt-16
-  rounded-[32px]
-  border
-  border-white/10
-  backdrop-blur-xl
-  p-10
-  transition-all
-  duration-500
-  hover:-translate-y-2
-  hover:border-white/20
-  hover:shadow-2xl
-  "
->
-  <div className="flex flex-col md:flex-row justify-between gap-8">
+        <h2
+          className={`mt-4 text-5xl md:text-6xl font-bold ${
+            darkMode ? "text-white" : "text-[#1D1D1D]"
+          }`}
+        >
+          Featured Work
+        </h2>
+        <p
+          className={`mt-6 max-w-3xl mx-auto text-lg leading-8 ${
+            darkMode ? "text-gray-400" : "text-[#666]"
+          }`}
+        >
+          Selected projects that demonstrate my focus on clean design,
+          polished interactions, and practical problem solving.
+        </p>
+      </motion.div>
 
-    <div>
-      <span className="px-3 py-1 rounded-full text-sm border border-green-500/30 text-green-400">
-        Featured Project • MVP Live
-      </span>
+      <div className="grid gap-8 md:grid-cols-3">
+        {projects.map((project, index) => (
+          <motion.a
+            key={project.title}
+            href={project.href}
+            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: index * 0.1 }}
+            whileHover={{ y: -10 }}
+            className={`group block rounded-[32px] border p-8 transition-all duration-300 ${
+              darkMode
+                ? "bg-[#111111] border-[#222222] hover:border-[#B8A89F]"
+                : "bg-white border-[#E7DED5] hover:border-[#B8A89F]"
+            }`}
+          >
+            <div className="mb-6 flex items-center justify-between">
+              <span className="text-sm uppercase tracking-[0.35em] font-semibold text-[#B8A89F]">
+                Featured
+              </span>
+              <span
+                className={`text-xs font-semibold tracking-[0.25em] uppercase ${
+                  darkMode ? "text-gray-400" : "text-[#777]"
+                }`}
+              >
+                View
+              </span>
+            </div>
 
-      <h3 className="text-4xl font-bold mt-4">
-        StudyFlow AI
-      </h3>
+            <h3
+              className={`text-2xl font-bold mb-4 ${
+                darkMode ? "text-white" : "text-[#111]"
+              }`}
+            >
+              {project.title}
+            </h3>
 
-      <div className="mt-2">
-        <span className="text-sm tracking-wide text-green-400">
-          Currently Under Active Development
-        </span>
-      </div>
+            <p
+              className={`leading-relaxed mb-6 ${
+                darkMode ? "text-gray-400" : "text-[#555]"
+              }`}
+            >
+              {project.description}
+            </p>
 
-      <p className="text-gray-400 mt-4 max-w-xl">
-        Designed and developed an AI-powered learning platform that transforms
-        PDFs into summaries, flashcards, quizzes and study notes. Building the
-        MVP required solving challenges related to PDF content extraction,
-        prompt engineering, AI response consistency and user workflow design.
-        The project is currently being expanded with embedding-based semantic
-        search, vector databases, knowledge graphs and personalized study
-        planning features.
-      </p>
+            {/* Live and GitHub Action Links Row */}
+            <div className="mb-6 flex items-center gap-4">
+              <a
+                href={project.liveUrl}
+                onClick={(e) => e.stopPropagation()}
+                target="_blank"
+                rel="noreferrer"
+                className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors ${
+                  darkMode
+                    ? "bg-white text-black hover:bg-gray-200"
+                    : "bg-[#111] text-white hover:bg-gray-800"
+                }`}
+              >
+                Live Demo
+              </a>
+              <a
+                href={project.githubUrl}
+                onClick={(e) => e.stopPropagation()}
+                target="_blank"
+                rel="noreferrer"
+                className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-lg border transition-colors ${
+                  darkMode
+                    ? "border-[#222] text-gray-400 hover:text-white hover:bg-white/5"
+                    : "border-[#E7DED5] text-[#555] hover:text-[#111] hover:bg-black/5"
+                }`}
+              >
+                GitHub
+              </a>
+            </div>
 
-      <div className="mt-8 grid md:grid-cols-3 gap-4">
-
-        <div className="rounded-2xl bg-white/5 p-5">
-          <h4 className="font-semibold mb-2">Challenge</h4>
-          <p className="text-sm text-gray-400">
-            Handling PDF extraction, inconsistent document formats and maintaining reliable AI-generated outputs.
-          </p>
-        </div>
-
-        <div className="rounded-2xl bg-white/5 p-5">
-          <h4 className="font-semibold mb-2">Solution</h4>
-          <p className="text-sm text-gray-400">
-            Built an automated workflow that converts study material into interactive learning resources.
-          </p>
-        </div>
-
-        <div className="rounded-2xl bg-white/5 p-5">
-          <h4 className="font-semibold mb-2">Next Phase</h4>
-          <p className="text-sm text-gray-400">
-            Implementing embeddings, vector search, knowledge graphs, study planners and scalable document processing.
-          </p>
-        </div>
-
-      </div>
-
-      <div className="flex flex-wrap gap-2 mt-6">
-        <span className="px-3 py-1 rounded-full bg-white/5">Next.js</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">TypeScript</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">React</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">Tailwind CSS</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">Groq API</span>
-      </div>
-    </div>
-
-    <div className="flex items-end gap-4">
-      <a
-        href="https://studyyflowai.vercel.app"
-        onClick={(e) => e.stopPropagation()}
-        target="_blank"
-        rel="noreferrer"
-        className="px-5 py-3 rounded-xl bg-white text-black font-medium"
-      >
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Ananya-vit/studyflow-ai"
-        onClick={(e) => e.stopPropagation()}
-        target="_blank"
-        rel="noreferrer"
-        className="px-5 py-3 rounded-xl border border-white/10"
-      >
-        GitHub
-      </a>
-    </div>
-
-  </div>
-</div>
-<div
-  onClick={() => navigate("/altverse")}
-  className="
-  mt-16
-  rounded-[32px]
-  border
-  border-white/10
-  backdrop-blur-xl
-  p-10
-  cursor-pointer
-  transition-all
-  duration-500
-  hover:-translate-y-2
-  hover:border-white/20
-  hover:shadow-2xl
-  "
->
-  <div className="flex flex-col md:flex-row justify-between gap-8">
-
-    <div>
-      <span className="px-3 py-1 rounded-full text-sm border border-white/10">
-        Phase 1 Complete
-      </span>
-
-      <h3 className="text-4xl font-bold mt-4">
-        AltVerse
-      </h3>
-
-      <p className="text-gray-400 mt-4 max-w-xl">
-        An AI-powered platform that transforms user prompts
-        into immersive alternate-history worlds, timelines,
-        and reality simulations.
-      </p>
-      <div className="mt-8 grid md:grid-cols-3 gap-4">
-
-  <div className="rounded-2xl bg-white/5 p-5">
-    <h4 className="font-semibold mb-2">Problem</h4>
-    <p className="text-sm text-gray-400">
-      Existing AI tools generate text, not complete alternate worlds.
-    </p>
-  </div>
-
-  <div className="rounded-2xl bg-white/5 p-5">
-    <h4 className="font-semibold mb-2">Solution</h4>
-    <p className="text-sm text-gray-400">
-      Generate immersive timelines, cultures, politics and future events.
-    </p>
-  </div>
-
-  <div className="rounded-2xl bg-white/5 p-5">
-    <h4 className="font-semibold mb-2">Impact</h4>
-    <p className="text-sm text-gray-400">
-      Demonstrates AI integration, routing, deployment and UI engineering.
-    </p>
-  </div>
-
-</div>
-
-      <div className="flex flex-wrap gap-2 mt-6">
-        <span className="px-3 py-1 rounded-full bg-white/5">Next.js</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">TypeScript</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">Tailwind</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">AI API</span>
-        <span className="px-3 py-1 rounded-full bg-white/5">Vercel</span>
-      </div>
-    </div>
-
-    <div className="flex items-end gap-4">
-      <a
-        href="https://alt-verse.vercel.app"
-        target="_blank"
-        rel="noreferrer"
-        className="px-5 py-3 rounded-xl bg-white text-black font-medium"
-      >
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Ananya-vit/AltVerse"
-        target="_blank"
-        rel="noreferrer"
-        onClick={(e) => e.stopPropagation()}
-        className="px-5 py-3 rounded-xl border border-white/10"
-      >
-        GitHub
-      </a>
-    </div>
-
-  </div>
-</div>
-
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className={`rounded-full px-3 py-2 text-sm font-medium ${
+                    darkMode
+                      ? "bg-[#1E1E1E] text-gray-300"
+                      : "bg-[#F4F1EC] text-[#555]"
+                  }`}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.a>
+        ))}
       </div>
     </section>
   );

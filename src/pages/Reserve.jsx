@@ -18,7 +18,7 @@ function Reserve({ darkMode }) {
       filter: "blur(0px)",
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // Custom premium ease-out quad/cubic curve
+        ease: [0.16, 1, 0.3, 1], 
       },
     },
   };
@@ -238,7 +238,7 @@ function Reserve({ darkMode }) {
           <h2 className={`text-xl md:text-3xl font-semibold tracking-wide mt-4 font-mono ${
             darkMode ? "text-cyan-400/90" : "text-cyan-600"
           }`}>
-            AI-Powered Food Donation & Redistribution Platform
+            Food Donation & Redistribution Platform
           </h2>
 
           <p className={`mt-8 text-lg md:text-xl leading-relaxed max-w-3xl ${
@@ -266,24 +266,26 @@ function Reserve({ darkMode }) {
           {/* Call To Actions */}
           <div className="flex flex-wrap gap-4 mt-12">
             <a
-              href="https://github.com/Ananya-vit/ReServe"
+              href="https://reeserve.vercel.app/"
               target="_blank"
               rel="noreferrer"
               className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/20 hover:opacity-95 transform hover:-translate-y-0.5 transition-all duration-200 text-sm tracking-wide flex items-center gap-2"
             >
-              GitHub Repository <span className="font-sans">→</span>
+              Live Demo <span className="font-sans">→</span>
             </a>
 
-            <button
-              disabled
-              className={`px-6 py-3.5 rounded-xl border backdrop-blur-sm font-semibold opacity-50 cursor-not-allowed transition-all duration-200 text-sm flex items-center gap-2 ${
+            <a
+              href="https://github.com/Ananya-vit/ReServe"
+              target="_blank"
+              rel="noreferrer"
+              className={`px-6 py-3.5 rounded-xl border backdrop-blur-sm font-semibold hover:bg-slate-900/80 transition-all duration-200 text-sm flex items-center gap-2 ${
                 darkMode 
-                  ? "border-slate-800 bg-slate-900/40 text-slate-500" 
-                  : "border-[#E7DED5] bg-white text-[#aaa] shadow-sm"
+                  ? "border-slate-800 bg-slate-900/40 text-slate-300 hover:border-slate-700" 
+                  : "border-[#E7DED5] bg-white text-[#555] hover:border-[#CFC4B9] shadow-sm"
               }`}
             >
-              Live Demo Unavailable
-            </button>
+              GitHub Repository
+            </a>
           </div>
         </motion.section>
 
