@@ -128,7 +128,7 @@ function Navbar({ darkMode, setDarkMode }) {
           </button>
 
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1S1nb8qUT5xn2BNC7yPn78Hp-xoNJgemK/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="
